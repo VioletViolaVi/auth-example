@@ -11,5 +11,5 @@ INSERT INTO
 VALUES
   (
     'admin',
-    '$2y$12$i3cMrFBKZbM2lr/zSfkxA.7stI.xvGhcdwkDoAJKYmYr.X0rQ.MOm'
+    '$2b$12$exJGKOeiLEt7YzxxidFSBuuqIXk36OX0pPH7DAySKtU9XTwZZGrCy'
   );
