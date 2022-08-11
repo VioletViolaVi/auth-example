@@ -23,6 +23,7 @@ services:
       - PGPASSWORD=admin-password
       - PGDATABASE=records
       - PGPORT=5432
+      - SECRET_PASSWORD=${PASS}
     volumes:
       - type: bind
         source: ./api
