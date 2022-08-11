@@ -1,6 +1,18 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
+
+async function createToken(userData) {
+  const token = await jwt.sign(
+    {
+      username: userData["username"]
+    },
+    process.env["SECRET_PASSWORD"],
+    { expiresIn: 60 * 60 }
+  );
+  return token;
+}
 
 async function login(req, res) {
   try {
@@ -14,7 +26,8 @@ async function login(req, res) {
 
     if (authenticated) {
       res.json({
-        success: true
+        success: true,
+        token: "Bearer " + (await createToken(user))
       });
     } else {
       throw "Credentials didn't match.";
