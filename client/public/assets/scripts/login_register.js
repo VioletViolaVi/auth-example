@@ -12,7 +12,8 @@ function login(data) {
     .then((res) => res.json())
     .then((data) => {
       if (data["success"]) {
-        console.log(data);
+        localStorage.setItem("token", data["token"]);
+        window.location.assign("/");
       } else {
         throw "Unable to authenticate!";
       }
